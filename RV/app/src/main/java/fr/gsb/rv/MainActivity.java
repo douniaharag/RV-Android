@@ -58,7 +58,21 @@ public void seConnecter(View vue){
     String matricule = etMatricule.getText().toString();
     String mdp = etMdp.getText().toString();
 
-    String url = String.format( "http://localhost:5000/visiteurs/%s/%s" , matricule , mdp ) ;
+
+    Visiteur leVisiteur = ModeleGsb.getInstance().seConnecter(matricule , mdp);
+
+    if (leVisiteur != null){
+        Log.i("RV" , "" + leVisiteur) ;
+        Session.ouvrir(leVisiteur);
+    }
+    else {
+        Log.w("RV" , "Connection refusée" );
+    }
+
+
+
+
+    /*String url = String.format( "http://localhost:5000/visiteurs/%s/%s" , matricule , mdp ) ;
 
 
 
@@ -110,7 +124,7 @@ public void seConnecter(View vue){
 
     JsonObjectRequest requete = new JsonObjectRequest(Request.Method.GET , url, null, ecouteurReponse, ecouteurErreur);
     RequestQueue fileRequete = Volley.newRequestQueue(this) ;
-    fileRequete.add(requete) ;
+    fileRequete.add(requete) ; */
 
 
 
