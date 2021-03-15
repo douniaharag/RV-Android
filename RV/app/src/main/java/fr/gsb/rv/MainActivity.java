@@ -10,18 +10,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response ;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import fr.gsb.R;
 import fr.gsb.rv.entites.Visiteur;
 import fr.gsb.rv.modeles.ModeleGsb;
 import fr.gsb.rv.technique.Session;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
 
 import android.os.Bundle;
 import android.widget.Toast;
@@ -43,8 +46,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        etMatricule = (EditText) findViewById(R.id.etMatricule);
+        etMatricule.setText("");
+        etMdp = (EditText) findViewById(R.id.etMdp);
+        etMdp.setText("");
     }
-}
+
 
 public void seConnecter(View vue){
 
@@ -52,15 +59,17 @@ public void seConnecter(View vue){
     String mdp = etMdp.getText().toString();
 
     String url = String.format( "http://localhost:5000/visiteurs/%s/%s" , matricule , mdp ) ;
-    Log.i("RV" , ">>> " + url) ;
 
 
-    //Création d'écouteurs
+
+
     Response.Listener<JSONObject> ecouteurReponse = new Response.Listener<JSONObject>() {
         @Override
         public void onResponse(JSONObject response) {
 
             Visiteur visiteur = new Visiteur() ;
+            ModeleGsb modele = ModeleGsb.getInstance();
+
             System.out.println("> " + response.toString());
             try
             {
@@ -69,15 +78,15 @@ public void seConnecter(View vue){
                 visiteur.setPrenom( response.getString( "vis_prenom" ) ) ;
                 System.out.println( visiteur ) ;
                 Session.ouvrir( visiteur );
-                Log.i("RV" , "" + Session.getSession()) ;
+
+                modele.seConnecter(matricule , mdp);
+
                 Log.i("RV" , "" + Session.getSession().getLeVisiteur()) ;
 
-                //Toast.makeText(MainActivity.this,"Connexion réussie", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(MainActivity.this,MenuRvActivity.class);
-                startActivity(intent);
-                Toast.makeText(MainActivity.this,"Bienvenue ! " , Toast.LENGTH_SHORT).show();
-            }
 
+                Toast.makeText(MainActivity.this,"Bienvenue ! " , Toast.LENGTH_SHORT).show();
+
+            }
 
             catch (JSONException e)
             {
@@ -89,6 +98,7 @@ public void seConnecter(View vue){
         }
 
     } ;
+
 
     Response.ErrorListener ecouteurErreur = new Response.ErrorListener() {
         @Override
@@ -102,16 +112,18 @@ public void seConnecter(View vue){
     RequestQueue fileRequete = Volley.newRequestQueue(this) ;
     fileRequete.add(requete) ;
 
+
+
 }
 
-    // Annuler : Initialisation des champs.
+
     public void Annuler(View view){
 
         etMatricule.setText("");
         etMdp.setText("");
 
         Toast.makeText(MainActivity.this,"\"Vous avez annulé la procédure d'authentification\"",Toast.LENGTH_SHORT).show();
-        Log.i(TAG,"Initialisation des champs");
+
     }
 }
 

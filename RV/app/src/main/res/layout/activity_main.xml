@@ -1,34 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:adjustViewBounds="true"
-    tools:context=".MainActivity">
-
-<!--
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" /> -->
-
-
-<LinearLayout
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
     tools:layout_editor_absoluteX="8dp"
     tools:layout_editor_absoluteY="8dp"
-    tools:ignore="MissingConstraints">
-    <!--  -->
+    tools:context="fr.gsb.rv.MainActivity">
 
 
     <TextView
@@ -44,19 +25,15 @@
         android:layout_gravity="right"
         android:textColor="#663f39"
         android:textSize="24sp" />
-    <!-- -->
 
 
-    <!--android:background="@drawable/fond_icon"-->
-
-
-    <ImageView
+   <!-- <ImageView
         android:layout_width="200px"
         android:layout_height="200px"
         android:layout_gravity="center"
         android:layout_marginTop="-10dp"
         android:alpha=".75"
-        android:src="@drawable/Logo-gsb" />
+        android:src="@drawable/logo-gsb" /> -->
 
     <TextView
         android:id='@+id/vide2'
@@ -68,11 +45,12 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:text='@string/lblMatricule' />
+
 
     <EditText
         android:id="@+id/etMatricule"
@@ -80,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="40dp"
         android:layout_marginLeft="40dp"
-        android:hint="Login"
+        android:hint="@string/login"
         android:inputType="text" />
 
     <TextView
@@ -88,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:text='@string/lblMdp' />
 
@@ -98,9 +76,8 @@
         android:layout_height="wrap_content"
         android:layout_marginRight="40dp"
         android:layout_marginLeft="40dp"
-        android:hint="Password"
-        android:inputType="text"
-        android:password="true" />
+        android:hint="@string/password"
+        android:inputType="textPassword" />
 
     <TextView
         android:id='@+id/vide1'
@@ -125,7 +102,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="annuler"
+            android:onClick="Annuler"
             android:text="@string/btnAnnuler" />
 
     </LinearLayout>
@@ -134,4 +111,4 @@
 </LinearLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+

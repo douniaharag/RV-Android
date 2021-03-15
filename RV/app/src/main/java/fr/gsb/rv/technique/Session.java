@@ -1,7 +1,7 @@
 package fr.gsb.rv.technique;
 
 import fr.gsb.rv.entites.*;
-import fr.gsb.rv.gsb_rv_visiteur.MainActivity;
+import fr.gsb.rv.MainActivity;
 import fr.gsb.rv.modeles.*;
 
 public class Session {
@@ -20,17 +20,6 @@ public class Session {
 		Session.session = new Session(visiteur);
 	}
 
-	/*public static boolean ouvrir(MainActivity mainActivity, String matricule, String mdp) {
-		//Visiteur visiteur = ModeleGsb.getInstance().seConnecter(matricule, mdp) ;
-		Visiteur visiteur = ModeleGsb.getInstance().seConnecter(mainActivity, matricule, mdp);
-		System.out.println("tracker 4 :" + visiteur);
-		if (visiteur != null) {
-			Session.session = new Session(visiteur);
-			return true;
-		} else {
-			return false;
-		}
-	}*/
 
 	public static Session getSession() {
 		return Session.session;
@@ -46,23 +35,6 @@ public class Session {
 
 	public void setLeVisiteur(Visiteur visiteur) {
 		this.leVisiteur = visiteur;
-		System.out.println("tracker 5 :" + visiteur);
 	}
-
-
-
-/*
-public boolean isOpen(){
-	if(this.getLeVisiteur().getMatricule() != null){
-		return true;
-	}
-	else{
-		return false;
-	}
-}
-*/
-
-
-
 
 }

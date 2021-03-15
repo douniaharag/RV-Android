@@ -8,6 +8,8 @@
     <string name="btnValider"> Valider </string>
 
     <string name="btnAnnuler"> Annuler </string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
 
 
 </resources>
