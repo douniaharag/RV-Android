@@ -15,7 +15,9 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response ;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.Volley;
+import com.android.volley.NoConnectionError;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -47,10 +49,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         etMatricule = (EditText) findViewById(R.id.etMatricule);
-        etMatricule.setText("");
+        etMatricule.setText("a131");
         etMdp = (EditText) findViewById(R.id.etMdp);
-        etMdp.setText("");
+        etMdp.setText("azerty");
     }
+
+
 
 
 public void seConnecter(View vue){
@@ -59,7 +63,7 @@ public void seConnecter(View vue){
     String mdp = etMdp.getText().toString();
 
 
-    Visiteur leVisiteur = ModeleGsb.getInstance().seConnecter(matricule , mdp);
+   /*  Visiteur leVisiteur = ModeleGsb.getInstance().seConnecter(matricule , mdp);
 
     if (leVisiteur != null){
         Log.i("RV" , "" + leVisiteur) ;
@@ -67,14 +71,9 @@ public void seConnecter(View vue){
     }
     else {
         Log.w("RV" , "Connection refusée" );
-    }
+    }*/
 
-
-
-
-    /*String url = String.format( "http://localhost:5000/visiteurs/%s/%s" , matricule , mdp ) ;
-
-
+    String url = String.format( "http://192.168.121.151:5000/visiteurs/%s/%s" , matricule , mdp ) ;
 
 
     Response.Listener<JSONObject> ecouteurReponse = new Response.Listener<JSONObject>() {
@@ -82,7 +81,7 @@ public void seConnecter(View vue){
         public void onResponse(JSONObject response) {
 
             Visiteur visiteur = new Visiteur() ;
-            ModeleGsb modele = ModeleGsb.getInstance();
+
 
             System.out.println("> " + response.toString());
             try
@@ -93,7 +92,6 @@ public void seConnecter(View vue){
                 System.out.println( visiteur ) ;
                 Session.ouvrir( visiteur );
 
-                modele.seConnecter(matricule , mdp);
 
                 Log.i("RV" , "" + Session.getSession().getLeVisiteur()) ;
 
@@ -124,9 +122,7 @@ public void seConnecter(View vue){
 
     JsonObjectRequest requete = new JsonObjectRequest(Request.Method.GET , url, null, ecouteurReponse, ecouteurErreur);
     RequestQueue fileRequete = Volley.newRequestQueue(this) ;
-    fileRequete.add(requete) ; */
-
-
+    fileRequete.add(requete) ;
 
 }
 
@@ -140,6 +136,3 @@ public void seConnecter(View vue){
 
     }
 }
-
-
-
