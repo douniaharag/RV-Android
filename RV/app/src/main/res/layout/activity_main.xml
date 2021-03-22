@@ -16,6 +16,7 @@
         android:id='@+id/vide'
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:textSize="12sp" />
 
     <TextView
@@ -33,7 +34,13 @@
         android:layout_gravity="center"
         android:layout_marginTop="-10dp"
         android:alpha=".75"
-        android:src="@drawable/logo-gsb" /> -->
+        android:src="@drawable/logo-gsb" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#FF0000"
+        android:text='@string/tvErreur' /> -->
 
     <TextView
         android:id='@+id/vide2'
@@ -93,17 +100,21 @@
         android:weightSum="1">
 
         <Button
-            android:layout_width="wrap_content"
+            android:id="@+id/bValider"
+            android:layout_width="172dp"
             android:layout_height="wrap_content"
             android:onClick="seConnecter"
             android:text="@string/btnValider" />
         <!--android:onClick=""-->
 
         <Button
-            android:layout_width="wrap_content"
+            android:id="@+id/bAnnuler"
+            android:layout_width="188dp"
             android:layout_height="wrap_content"
             android:onClick="Annuler"
             android:text="@string/btnAnnuler" />
+
+
 
     </LinearLayout>
 

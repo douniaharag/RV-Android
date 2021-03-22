@@ -8,8 +8,13 @@
     <string name="btnValider"> Valider </string>
 
     <string name="btnAnnuler"> Annuler </string>
+
     <string name="password">Password</string>
+
     <string name="login">Login</string>
+
+    <string name="tvErreur"> Echec à la connexion. Recommencez </string>
+
 
 
 </resources>
