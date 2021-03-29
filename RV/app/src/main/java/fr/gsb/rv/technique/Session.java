@@ -33,8 +33,6 @@ public class Session {
 		return this.leVisiteur;
 	}
 
-	public void setLeVisiteur(Visiteur visiteur) {
-		this.leVisiteur = visiteur;
-	}
+
 
 }

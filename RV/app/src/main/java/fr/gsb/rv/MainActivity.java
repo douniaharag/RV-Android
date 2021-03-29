@@ -75,15 +75,16 @@ public class MainActivity extends AppCompatActivity {
                     Session.ouvrir( visiteur );
                     if(visiteur != null) {
 
-                        Log.i("RV" , "" + Session.getSession().getLeVisiteur()) ;
-                        Toast.makeText(MainActivity.this,"Bienvenue " + Session.getSession().getLeVisiteur().getNom()+" "+Session.getSession().getLeVisiteur().getPrenom() , Toast.LENGTH_SHORT).show();
+                        //Log.i("RV" , "" + Session.getSession().getLeVisiteur()) ;
+                        //Toast.makeText(MainActivity.this,"Bienvenue " + Session.getSession().getLeVisiteur().getNom()+" "+Session.getSession().getLeVisiteur().getPrenom() , Toast.LENGTH_SHORT).show();
 
-                    /*    Bundle paquet = new Bundle();
+                        Bundle paquet = new Bundle();
                         paquet.putString("matricule", String.valueOf(visiteur.getMatricule()));
                         paquet.putString("mdp", String.valueOf(visiteur.getMdp()));
+
                         Intent intentionSeConnecter = new Intent(MainActivity.this, MenuRvActivity.class );
                         intentionSeConnecter.putExtras(paquet);
-                        startActivity(intentionSeConnecter); */
+                        startActivity(intentionSeConnecter);
 
 
                     }else{

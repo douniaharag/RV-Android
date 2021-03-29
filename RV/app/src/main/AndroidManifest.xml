@@ -13,7 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RV"
         android:usesCleartextTraffic="true">
-        <activity android:name=".rv.MenuRvActivity"></activity>
+        <activity android:name=".rv.VisuRvActivity"></activity>
+        <activity android:name=".rv.ListeRvActivity" />
+        <activity android:name=".rv.SaisieRvActivity" />
+        <activity android:name=".rv.RechercheRvActivity" />
+        <activity android:name=".rv.MenuRvActivity" />
         <activity android:name=".rv.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

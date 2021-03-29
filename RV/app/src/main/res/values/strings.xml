@@ -16,5 +16,11 @@
     <string name="tvErreur"> Echec à la connexion. Recommencez </string>
 
 
+    <string name="lblVisiteur">  </string>
+
+    <string name="btnConsulter"> CONSULTER UN RAPPORT DE VISITE </string>
+
+    <string name="btnSaisir"> SAISIR UN RAPPORT DE VISITE </string>
+
 
 </resources>
